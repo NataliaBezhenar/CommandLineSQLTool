@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SQLOperations {
-
+	
 	private final static Logger LOGGER = Logger.getLogger(SQLOperations.class
 			.getName());
 
@@ -120,6 +120,7 @@ public class SQLOperations {
 	}
 
 	public static void main(String[] args) throws SQLException {
+		
 		FileHandler fh;
 		String path = Paths.get("").toAbsolutePath().toString();
 		try {
