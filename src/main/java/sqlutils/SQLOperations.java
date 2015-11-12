@@ -1,6 +1,5 @@
 package sqlutils;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,17 +7,14 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 public class SQLOperations {
 	
-	private final static Logger LOGGER = Logger.getLogger(SQLOperations.class
-			.getName());
+	private final static Logger LOGGER = Logger.getLogger(SQLOperations.class);
 
 	static Pattern pCreateTable = Pattern.compile("\\s*create\\s*table\\s*",Pattern.CASE_INSENSITIVE);
 	static Pattern pAlterTable = Pattern.compile("\\s*alter\\s*table\\s*",Pattern.CASE_INSENSITIVE);
@@ -51,14 +47,14 @@ public class SQLOperations {
 			statement = dbConnection.createStatement();
 
 			if (m6.find()) {
-
-				LOGGER.log(Level.INFO, "select statement: " + SQLquery);
+				LOGGER.info("select statement: " + SQLquery);
+				
 
 				ResultSet rs = statement.executeQuery(SQLquery);
 
 				if (!rs.isBeforeFirst()) {
 
-					LOGGER.log(Level.INFO, "No rows selected");
+					LOGGER.info( "No rows selected");
 				}
 
 				while (rs.next()) {
@@ -79,35 +75,35 @@ public class SQLOperations {
 			statement.execute(SQLquery);
 
 			if (m1.find()) {
-				LOGGER.log(Level.INFO, "Create table done: " + SQLquery);
+				LOGGER.info( "Create table done: " + SQLquery);
 			}
 			if (m2.find()) {
-				LOGGER.log(Level.INFO, "Alter table done: " + SQLquery);
+				LOGGER.info( "Alter table done: " + SQLquery);
 			}
 			if (m3.find()) {
-				LOGGER.log(Level.INFO, "Drop table done: " + SQLquery);
+				LOGGER.info( "Drop table done: " + SQLquery);
 			}
 			if (m4.find()) {
-				LOGGER.log(Level.INFO, "Table truncated: " + SQLquery);
+				LOGGER.info( "Table truncated: " + SQLquery);
 			}
 			if (m5.find()) {
-				LOGGER.log(Level.INFO, "Insert complete: " + SQLquery);
+				LOGGER.info( "Insert complete: " + SQLquery);
 			}
 			if (m7.find()) {
-				LOGGER.log(Level.INFO, "Commit complete: " + SQLquery);
+				LOGGER.info( "Commit complete: " + SQLquery);
 			}
 			if (m8.find()) {
-				LOGGER.log(Level.INFO, "Rollback complete: " + SQLquery);
+				LOGGER.info( "Rollback complete: " + SQLquery);
 			}
 			if (m9.find()) {
-				LOGGER.log(Level.INFO, "Delete complete: " + SQLquery);
+				LOGGER.info( "Delete complete: " + SQLquery);
 			}
 			if (m10.find()) {
-				LOGGER.log(Level.INFO, "Update complete: " + SQLquery);
+				LOGGER.info( "Update complete: " + SQLquery);
 			}
 
 		} catch (SQLException e) {
-			LOGGER.log(Level.SEVERE, "Error occur in executeUserQuery method.");
+			LOGGER.error( "Error occur in executeUserQuery method.");
 		} finally {
 			if (statement != null) {
 				statement.close();
@@ -121,29 +117,20 @@ public class SQLOperations {
 
 	public static void main(String[] args) throws SQLException {
 		
-		FileHandler fh;
-		String path = Paths.get("").toAbsolutePath().toString();
-		try {
-			fh = new FileHandler(path + "/LogFile.log");
-			LOGGER.addHandler(fh);
-			SimpleFormatter formatter = new SimpleFormatter();
-			fh.setFormatter(formatter);
-			LOGGER.fine("SQLUTILS log");
-			LOGGER.warning("Can throw SQLException");
-		} catch (SecurityException e) {
-			LOGGER.log(Level.SEVERE, "Error occur in FileHandler.", e);
-		} catch (IOException e) {
-			LOGGER.log(Level.SEVERE, "Error occur in FileHandler.", e);
-		}
 
-		LOGGER.log(Level.INFO, "Type \"exit\" to exit the program");
+		String path = Paths.get("").toAbsolutePath().toString();
+		
+		LOGGER.info("SQLUTILS log");
+		LOGGER.warn("Can throw SQLException");
+		LOGGER.info("Type \"exit\" to exit the program");
+		System.out.println("Type \"exit\" to exit the program");
 		Scanner scan = new Scanner(System.in);
 		String query = " ";
 		while (true) {
 			query = scan.nextLine();
 			if (query.equals("exit")) {
 				scan.close();
-				LOGGER.log(Level.INFO, "End of work");
+				LOGGER.info( "End of work");
 				break;
 			}
 			executeUserQuery(query);

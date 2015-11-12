@@ -7,10 +7,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 public class JDBCConnection {
 
 	private static String PROPERTIES_FILENAME = "sqlutils.properties";
 
+	 private static final Logger LOGGER = Logger.getLogger(JDBCConnection.class);
+	
 	protected static Connection getDBConnection() {
 
 		Properties properties = new Properties();
@@ -29,12 +33,14 @@ public class JDBCConnection {
 					properties.getProperty("DB_PASSWORD"));
 
 		} catch (IOException | ClassNotFoundException | SQLException e) {
-			System.err.println("There was an error reading "
+			LOGGER.error("There was an error reading "
 					+ PROPERTIES_FILENAME + ": " + e.getCause() + " : "
 					+ e.getMessage());
 			System.exit(1);
 		}
+		LOGGER.info("Connected");
 		return dbConnection;
+		
 	}
 
 }
