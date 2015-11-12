@@ -1,0 +1,37 @@
+2015-11-12 17:47:31 INFO  SQLOperations:123 - SQLUTILS log
+2015-11-12 17:47:31 WARN  SQLOperations:124 - Can throw SQLException
+2015-11-12 17:47:31 INFO  SQLOperations:125 - Type "exit" to exit the program
+2015-11-12 17:48:00 INFO  SQLOperations:123 - SQLUTILS log
+2015-11-12 17:48:00 WARN  SQLOperations:124 - Can throw SQLException
+2015-11-12 17:48:00 INFO  SQLOperations:125 - Type "exit" to exit the program
+2015-11-12 17:48:19 INFO  SQLOperations:50 - select statement: select * from locations
+2015-11-12 17:48:33 INFO  SQLOperations:50 - select statement: select *
+2015-11-12 17:48:33 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
+2015-11-12 17:48:43 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
+2015-11-12 17:48:46 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
+2015-11-12 17:48:52 INFO  SQLOperations:132 - End of work
+2015-11-12 17:50:34 INFO  SQLOperations:123 - SQLUTILS log
+2015-11-12 17:50:34 WARN  SQLOperations:124 - Can throw SQLException
+2015-11-12 17:50:34 INFO  SQLOperations:125 - Type "exit" to exit the program
+2015-11-12 17:50:47 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
+2015-11-12 17:50:51 INFO  SQLOperations:133 - End of work
+2015-11-12 17:53:57 INFO  SQLOperations:123 - SQLUTILS log
+2015-11-12 17:53:57 WARN  SQLOperations:124 - Can throw SQLException
+2015-11-12 17:53:57 INFO  SQLOperations:125 - Type "exit" to exit the program
+2015-11-12 17:54:22 INFO  JDBCConnection:41 - Connected
+2015-11-12 17:54:22 INFO  SQLOperations:50 - select statement: select last_name, department_name, city from employees e join DEPARTMENTS d on e.DEPARTMENT_ID=d.DEPARTMENT_ID join locations l on l.LOCATION_ID=d.LOCATION_ID
+2015-11-12 17:54:29 INFO  JDBCConnection:41 - Connected
+2015-11-12 17:54:29 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
+2015-11-12 17:54:37 INFO  SQLOperations:133 - End of work
+2015-11-12 17:55:20 INFO  SQLOperations:123 - SQLUTILS log
+2015-11-12 17:55:20 WARN  SQLOperations:124 - Can throw SQLException
+2015-11-12 17:55:20 INFO  SQLOperations:125 - Type "exit" to exit the program
+2015-11-12 17:56:53 INFO  JDBCConnection:41 - Connected
+2015-11-12 17:56:53 INFO  SQLOperations:50 - select statement: select country_name from countries
+2015-11-12 17:56:59 INFO  JDBCConnection:41 - Connected
+2015-11-12 17:57:00 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
+2015-11-12 17:58:08 INFO  JDBCConnection:41 - Connected
+2015-11-12 17:58:08 INFO  SQLOperations:90 - Insert complete: insert into regions values (5, 'Arctic')
+2015-11-12 17:59:18 INFO  JDBCConnection:41 - Connected
+2015-11-12 17:59:18 INFO  SQLOperations:99 - Delete complete: delete from regions where region_id=5
+2015-11-12 18:00:23 INFO  SQLOperations:133 - End of work
