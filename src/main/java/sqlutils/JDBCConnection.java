@@ -9,7 +9,7 @@ public class JDBCConnection {
 	static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
 	
-	 static final String USER = "jdbc_study";
+	 static final String USER = "old_db";
 	 static final String PASS = "111"; 
 	 
 	 protected static Connection getDBConnection() {
@@ -21,7 +21,6 @@ public class JDBCConnection {
 		    }
 		    try {
 		        dbConnection = DriverManager.getConnection(DB_URL, USER,PASS);
-		        return dbConnection;
 		    } catch (SQLException e) {
 		        System.out.println(e.getMessage());
 		    }

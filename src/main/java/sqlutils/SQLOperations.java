@@ -17,7 +17,8 @@ import java.util.regex.Pattern;
 
 public class SQLOperations {
 
-	private final static Logger LOGGER = Logger.getLogger(SQLOperations.class.getName());
+	private final static Logger LOGGER = Logger.getLogger(SQLOperations.class
+			.getName());
 
 	static Pattern pCreateTable = Pattern.compile("\\s*create\\s*table\\s*",Pattern.CASE_INSENSITIVE);
 	static Pattern pAlterTable = Pattern.compile("\\s*alter\\s*table\\s*",Pattern.CASE_INSENSITIVE);
@@ -52,23 +53,26 @@ public class SQLOperations {
 			if (m6.find()) {
 
 				LOGGER.log(Level.INFO, "select statement: " + SQLquery);
+
 				ResultSet rs = statement.executeQuery(SQLquery);
-				if (!rs.next()) {
-					LOGGER.log(Level.INFO, "No rows selected");;
+
+				if (!rs.isBeforeFirst()) {
+
+					LOGGER.log(Level.INFO, "No rows selected");
 				}
-				if (rs != null) {
-					while (rs.next()) {
-						ResultSetMetaData rsmd = rs.getMetaData();
 
-						for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+				while (rs.next()) {
+					ResultSetMetaData rsmd = rs.getMetaData();
 
-							if (i > 1) {
-								System.out.print("\t");
-							}
-							System.out.print(rs.getString(i));
+					for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+
+						if (i > 1) {
+							System.out.print("\t");
 						}
-						System.out.println();
+						System.out.print(rs.getString(i));
 					}
+					System.out.println();
+
 				}
 			}
 
@@ -107,6 +111,7 @@ public class SQLOperations {
 		} finally {
 			if (statement != null) {
 				statement.close();
+
 			}
 			if (dbConnection != null) {
 				dbConnection.close();
