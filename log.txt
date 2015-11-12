@@ -1,37 +1,263 @@
-2015-11-12 17:47:31 INFO  SQLOperations:123 - SQLUTILS log
-2015-11-12 17:47:31 WARN  SQLOperations:124 - Can throw SQLException
-2015-11-12 17:47:31 INFO  SQLOperations:125 - Type "exit" to exit the program
-2015-11-12 17:48:00 INFO  SQLOperations:123 - SQLUTILS log
-2015-11-12 17:48:00 WARN  SQLOperations:124 - Can throw SQLException
-2015-11-12 17:48:00 INFO  SQLOperations:125 - Type "exit" to exit the program
-2015-11-12 17:48:19 INFO  SQLOperations:50 - select statement: select * from locations
-2015-11-12 17:48:33 INFO  SQLOperations:50 - select statement: select *
-2015-11-12 17:48:33 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
-2015-11-12 17:48:43 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
-2015-11-12 17:48:46 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
-2015-11-12 17:48:52 INFO  SQLOperations:132 - End of work
-2015-11-12 17:50:34 INFO  SQLOperations:123 - SQLUTILS log
-2015-11-12 17:50:34 WARN  SQLOperations:124 - Can throw SQLException
-2015-11-12 17:50:34 INFO  SQLOperations:125 - Type "exit" to exit the program
-2015-11-12 17:50:47 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
-2015-11-12 17:50:51 INFO  SQLOperations:133 - End of work
-2015-11-12 17:53:57 INFO  SQLOperations:123 - SQLUTILS log
-2015-11-12 17:53:57 WARN  SQLOperations:124 - Can throw SQLException
-2015-11-12 17:53:57 INFO  SQLOperations:125 - Type "exit" to exit the program
-2015-11-12 17:54:22 INFO  JDBCConnection:41 - Connected
-2015-11-12 17:54:22 INFO  SQLOperations:50 - select statement: select last_name, department_name, city from employees e join DEPARTMENTS d on e.DEPARTMENT_ID=d.DEPARTMENT_ID join locations l on l.LOCATION_ID=d.LOCATION_ID
-2015-11-12 17:54:29 INFO  JDBCConnection:41 - Connected
-2015-11-12 17:54:29 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
-2015-11-12 17:54:37 INFO  SQLOperations:133 - End of work
-2015-11-12 17:55:20 INFO  SQLOperations:123 - SQLUTILS log
-2015-11-12 17:55:20 WARN  SQLOperations:124 - Can throw SQLException
-2015-11-12 17:55:20 INFO  SQLOperations:125 - Type "exit" to exit the program
-2015-11-12 17:56:53 INFO  JDBCConnection:41 - Connected
-2015-11-12 17:56:53 INFO  SQLOperations:50 - select statement: select country_name from countries
-2015-11-12 17:56:59 INFO  JDBCConnection:41 - Connected
-2015-11-12 17:57:00 ERROR SQLOperations:106 - Error occur in executeUserQuery method.
-2015-11-12 17:58:08 INFO  JDBCConnection:41 - Connected
-2015-11-12 17:58:08 INFO  SQLOperations:90 - Insert complete: insert into regions values (5, 'Arctic')
-2015-11-12 17:59:18 INFO  JDBCConnection:41 - Connected
-2015-11-12 17:59:18 INFO  SQLOperations:99 - Delete complete: delete from regions where region_id=5
-2015-11-12 18:00:23 INFO  SQLOperations:133 - End of work
+2015-11-12 22:35:53 INFO  SQLOperations:154 - SQLUTILS log
+2015-11-12 22:35:53 WARN  SQLOperations:155 - Can throw SQLException
+2015-11-12 22:35:53 INFO  SQLOperations:156 - Type "exit" to exit the program
+2015-11-12 22:35:57 INFO  SQLOperations:102 - Table created: CREATE TABLE customers ( customer_id number(10) NOT NULL, customer_name varchar(50) NOT NULL, city varchar(50))
+2015-11-12 22:36:03 INFO  SQLOperations:118 - Insert complete: insert into customers values (1, 'SPD Ivanov', 'Odessa')
+2015-11-12 22:36:11 INFO  SQLOperations:118 - Insert complete: insert into customers values (2, 'OOO Pobeda', 'Kiev')
+2015-11-12 22:36:18 INFO  SQLOperations:118 - Insert complete: insert into customers values (2, 'Anonymus', 'Dnipropetrovsk')
+2015-11-12 22:36:25 INFO  SQLOperations:61 - select statement: select * from customers
+2015-11-12 22:36:25 INFO  SQLOperations:95 - 
+CUSTOMER_ID CUSTOMER_NAME CITY           
+1           SPD Ivanov    Odessa         
+2           OOO Pobeda    Kiev           
+2           Anonymus      Dnipropetrovsk 
+
+3 rows selected
+2015-11-12 22:36:33 INFO  SQLOperations:134 - Update complete: update customers set customer_id=3 where city like 'Dnipropetrovsk'
+2015-11-12 22:36:40 INFO  SQLOperations:61 - select statement: select customer_id from customers
+2015-11-12 22:36:40 INFO  SQLOperations:95 - 
+CUSTOMER_ID 
+1           
+2           
+3           
+
+3 rows selected
+2015-11-12 22:36:51 INFO  SQLOperations:122 - Commit complete: commit
+2015-11-12 22:36:59 INFO  SQLOperations:114 - Table truncated: truncate table customers
+2015-11-12 22:37:09 INFO  SQLOperations:61 - select statement: select * from customers
+2015-11-12 22:37:09 INFO  SQLOperations:66 - No rows selected
+2015-11-12 22:37:09 INFO  SQLOperations:95 - 
+CUSTOMER_ID CUSTOMER_NAME CITY 
+
+0 rows selected
+2015-11-12 22:37:50 INFO  SQLOperations:154 - SQLUTILS log
+2015-11-12 22:37:50 WARN  SQLOperations:155 - Can throw SQLException
+2015-11-12 22:37:50 INFO  SQLOperations:156 - Type "exit" to exit the program
+2015-11-12 22:38:03 INFO  SQLOperations:110 - Table dropped: drop table customers
+2015-11-12 22:38:08 INFO  SQLOperations:122 - Commit complete: commit
+2015-11-12 22:38:20 INFO  SQLOperations:61 - select statement: select last_name, department_name, city from employees e join DEPARTMENTS d on e.DEPARTMENT_ID=d.DEPARTMENT_ID join locations l on l.LOCATION_ID=d.LOCATION_ID
+2015-11-12 22:38:20 INFO  SQLOperations:95 - 
+LAST_NAME   DEPARTMENT_NAME  CITY                
+King        Executive        Seattle             
+Kochhar     Executive        Seattle             
+De Haan     Executive        Seattle             
+Hunold      IT               Southlake           
+Ernst       IT               Southlake           
+Austin      IT               Southlake           
+Pataballa   IT               Southlake           
+Lorentz     IT               Southlake           
+Greenberg   Finance          Seattle             
+Faviet      Finance          Seattle             
+Chen        Finance          Seattle             
+Sciarra     Finance          Seattle             
+Urman       Finance          Seattle             
+Popp        Finance          Seattle             
+Raphaely    Purchasing       Seattle             
+Khoo        Purchasing       Seattle             
+Baida       Purchasing       Seattle             
+Tobias      Purchasing       Seattle             
+Himuro      Purchasing       Seattle             
+Colmenares  Purchasing       Seattle             
+Weiss       Shipping         South San Francisco 
+Fripp       Shipping         South San Francisco 
+Kaufling    Shipping         South San Francisco 
+Vollman     Shipping         South San Francisco 
+Mourgos     Shipping         South San Francisco 
+Nayer       Shipping         South San Francisco 
+Mikkilineni Shipping         South San Francisco 
+Landry      Shipping         South San Francisco 
+Markle      Shipping         South San Francisco 
+Bissot      Shipping         South San Francisco 
+Atkinson    Shipping         South San Francisco 
+Marlow      Shipping         South San Francisco 
+Olson       Shipping         South San Francisco 
+Mallin      Shipping         South San Francisco 
+Rogers      Shipping         South San Francisco 
+Gee         Shipping         South San Francisco 
+Philtanker  Shipping         South San Francisco 
+Ladwig      Shipping         South San Francisco 
+Stiles      Shipping         South San Francisco 
+Seo         Shipping         South San Francisco 
+Patel       Shipping         South San Francisco 
+Rajs        Shipping         South San Francisco 
+Davies      Shipping         South San Francisco 
+Matos       Shipping         South San Francisco 
+Vargas      Shipping         South San Francisco 
+Russell     Sales            Oxford              
+Partners    Sales            Oxford              
+Errazuriz   Sales            Oxford              
+Cambrault   Sales            Oxford              
+Zlotkey     Sales            Oxford              
+Tucker      Sales            Oxford              
+Bernstein   Sales            Oxford              
+Hall        Sales            Oxford              
+Olsen       Sales            Oxford              
+Cambrault   Sales            Oxford              
+Tuvault     Sales            Oxford              
+King        Sales            Oxford              
+Sully       Sales            Oxford              
+McEwen      Sales            Oxford              
+Smith       Sales            Oxford              
+Doran       Sales            Oxford              
+Sewall      Sales            Oxford              
+Vishney     Sales            Oxford              
+Greene      Sales            Oxford              
+Marvins     Sales            Oxford              
+Lee         Sales            Oxford              
+Ande        Sales            Oxford              
+Banda       Sales            Oxford              
+Ozer        Sales            Oxford              
+Bloom       Sales            Oxford              
+Fox         Sales            Oxford              
+Smith       Sales            Oxford              
+Bates       Sales            Oxford              
+Kumar       Sales            Oxford              
+Abel        Sales            Oxford              
+Hutton      Sales            Oxford              
+Taylor      Sales            Oxford              
+Livingston  Sales            Oxford              
+Johnson     Sales            Oxford              
+Taylor      Shipping         South San Francisco 
+Fleaur      Shipping         South San Francisco 
+Sullivan    Shipping         South San Francisco 
+Geoni       Shipping         South San Francisco 
+Sarchand    Shipping         South San Francisco 
+Bull        Shipping         South San Francisco 
+Dellinger   Shipping         South San Francisco 
+Cabrio      Shipping         South San Francisco 
+Chung       Shipping         South San Francisco 
+Dilly       Shipping         South San Francisco 
+Gates       Shipping         South San Francisco 
+Perkins     Shipping         South San Francisco 
+Bell        Shipping         South San Francisco 
+Everett     Shipping         South San Francisco 
+McCain      Shipping         South San Francisco 
+Jones       Shipping         South San Francisco 
+Walsh       Shipping         South San Francisco 
+Feeney      Shipping         South San Francisco 
+OConnell    Shipping         South San Francisco 
+Grant       Shipping         South San Francisco 
+Whalen      Administration   Seattle             
+Hartstein   Marketing        Toronto             
+Fay         Marketing        Toronto             
+Mavris      Human Resources  London              
+Baer        Public Relations Munich              
+Higgins     Accounting       Seattle             
+Gietz       Accounting       Seattle             
+Bezhenar    Odessa Office    Odessa              
+
+107 rows selected
+2015-11-12 22:38:30 INFO  SQLOperations:61 - select statement: select last_name, salary, nvl(COMMISSION_PCT,0)*salary as commission, salary*12+nvl(COMMISSION_PCT,0)*salary as year_Salary_and_commission from employees
+2015-11-12 22:38:30 INFO  SQLOperations:95 - 
+LAST_NAME   SALARY COMMISSION YEAR_SALARY_AND_COMMISSION 
+King        24000  0          288000                     
+Kochhar     17000  0          204000                     
+De Haan     17000  0          204000                     
+Hunold      9000   0          108000                     
+Ernst       6000   0          72000                      
+Austin      4800   0          57600                      
+Pataballa   4800   0          57600                      
+Lorentz     4200   0          50400                      
+Greenberg   12000  0          144000                     
+Faviet      9000   0          108000                     
+Chen        8200   0          98400                      
+Sciarra     7700   0          92400                      
+Urman       7800   0          93600                      
+Popp        6900   0          82800                      
+Raphaely    11000  0          132000                     
+Khoo        3100   0          37200                      
+Baida       2900   0          34800                      
+Tobias      2800   0          33600                      
+Himuro      2600   0          31200                      
+Colmenares  2500   0          30000                      
+Weiss       8000   0          96000                      
+Fripp       8200   0          98400                      
+Kaufling    7900   0          94800                      
+Vollman     6500   0          78000                      
+Mourgos     5800   0          69600                      
+Nayer       3200   0          38400                      
+Mikkilineni 2700   0          32400                      
+Landry      2400   0          28800                      
+Markle      2200   0          26400                      
+Bissot      3300   0          39600                      
+Atkinson    2800   0          33600                      
+Marlow      2500   0          30000                      
+Olson       2100   0          25200                      
+Mallin      3300   0          39600                      
+Rogers      2900   0          34800                      
+Gee         2400   0          28800                      
+Philtanker  2200   0          26400                      
+Ladwig      3600   0          43200                      
+Stiles      3200   0          38400                      
+Seo         2700   0          32400                      
+Patel       2500   0          30000                      
+Rajs        3500   0          42000                      
+Davies      3100   0          37200                      
+Matos       2600   0          31200                      
+Vargas      2500   0          30000                      
+Russell     14000  5600       173600                     
+Partners    13500  4050       166050                     
+Errazuriz   12000  3600       147600                     
+Cambrault   11000  3300       135300                     
+Zlotkey     10500  2100       128100                     
+Tucker      10000  3000       123000                     
+Bernstein   9500   2375       116375                     
+Hall        9000   2250       110250                     
+Olsen       8000   1600       97600                      
+Cambrault   7500   1500       91500                      
+Tuvault     7000   1050       85050                      
+King        10000  3500       123500                     
+Sully       9500   3325       117325                     
+McEwen      9000   3150       111150                     
+Smith       8000   2400       98400                      
+Doran       7500   2250       92250                      
+Sewall      7000   1750       85750                      
+Vishney     10500  2625       128625                     
+Greene      9500   1425       115425                     
+Marvins     7200   720        87120                      
+Lee         6800   680        82280                      
+Ande        6400   640        77440                      
+Banda       6200   620        75020                      
+Ozer        11500  2875       140875                     
+Bloom       10000  2000       122000                     
+Fox         9600   1920       117120                     
+Smith       7400   1110       89910                      
+Bates       7300   1095       88695                      
+Kumar       6100   610        73810                      
+Abel        11000  3300       135300                     
+Hutton      8800   2200       107800                     
+Taylor      8600   1720       104920                     
+Livingston  8400   1680       102480                     
+Grant       7000   1050       85050                      
+Johnson     6200   620        75020                      
+Taylor      3200   0          38400                      
+Fleaur      3100   0          37200                      
+Sullivan    2500   0          30000                      
+Geoni       2800   0          33600                      
+Sarchand    4200   0          50400                      
+Bull        4100   0          49200                      
+Dellinger   3400   0          40800                      
+Cabrio      3000   0          36000                      
+Chung       3800   0          45600                      
+Dilly       3600   0          43200                      
+Gates       2900   0          34800                      
+Perkins     2500   0          30000                      
+Bell        4000   0          48000                      
+Everett     3900   0          46800                      
+McCain      3200   0          38400                      
+Jones       2800   0          33600                      
+Walsh       3100   0          37200                      
+Feeney      3000   0          36000                      
+OConnell    2600   0          31200                      
+Grant       2600   0          31200                      
+Whalen      4400   0          52800                      
+Hartstein   13000  0          156000                     
+Fay         6000   0          72000                      
+Mavris      6500   0          78000                      
+Baer        10000  0          120000                     
+Higgins     12000  0          144000                     
+Gietz       8300   0          99600                      
+Bezhenar    10000  9000       129000                     
+
+108 rows selected
+2015-11-12 22:38:40 INFO  SQLOperations:167 - End of work

@@ -38,7 +38,6 @@ public class JDBCConnection {
 					+ e.getMessage());
 			System.exit(1);
 		}
-		LOGGER.info("Connected");
 		return dbConnection;
 		
 	}
